@@ -1,7 +1,7 @@
 {
   "name": "SignGenerator",
   "productName": "SignGenerator",
-  "version": "1.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development webpack --config ./configs/webpack.config.renderer.dev.dll.babel.js --colors",
@@ -65,42 +65,9 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "Le Comptoir des Pharmacies",
-      "repo": "SignGenerator",
-      "private": false
+      "releaseType": "release"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LeComptoirDesPharmacies/Sign-Generator"
-  },
-  "author": {
-    "name": "Léa David",
-    "email": "lea.david@epitech.eu",
-    "url": "https://github.com/LeComptoirDesPharmacies"
-  },
-  "contributors": [
-    {
-      "name": "Léa David",
-      "email": "lea.david@epitech.eu",
-      "url": "https://github.com/LeComptoirDesPharmacies"
-    }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/LeComptoirDesPharmacies/Sign-Generator/issues"
-  },
-  "keywords": [
-    "electron",
-    "boilerplate",
-    "react",
-    "redux",
-    "flow",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
-  ],
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
