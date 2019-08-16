@@ -21,7 +21,7 @@ cache:
 notifications:
   email: false
 script:
-  - yarn package-all
+  - yarn package-ci
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN

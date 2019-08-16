@@ -2,6 +2,12 @@
   "name": "SignGenerator",
   "productName": "SignGenerator",
   "version": "1.0.0",
+  "author": "Léa David",
+  "homepage": "https://github.com/LeComptoirDesPharmacies/Sign-Generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeComptoirDesPharmacies/Sign-Generator"
+  },
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development webpack --config ./configs/webpack.config.renderer.dev.dll.babel.js --colors",
