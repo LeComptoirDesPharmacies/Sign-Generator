@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '8'
+  - '10'
 sudo: required
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install libsecret-1-dev          ; fi
@@ -23,8 +23,10 @@ cache:
 notifications:
   email: false
 script:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then yarn package-all          ; fi
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then yarn package-all          ; fi
+  docker run --rm --name electron -ti -d -v ${PWD}:/project -v ${PWD##*/}-node-modules:/project/node_modules electronuserland/electron-builder:wine
+  docker exec electron npm install && npm prune
+  docker exec electron npm run build:linux
+  docker exec electron npm run build:windows
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
