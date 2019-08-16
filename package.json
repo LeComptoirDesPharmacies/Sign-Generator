@@ -1,8 +1,7 @@
 {
   "name": "SignGenerator",
   "productName": "SignGenerator",
-  "version": "0.17.1",
-  "description": "Electron application to generate signatures",
+  "version": "1.0",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development webpack --config ./configs/webpack.config.renderer.dev.dll.babel.js --colors",
@@ -42,8 +41,6 @@
         {
           "x": 410,
           "y": 220,
-          "type": "link",
-          "path": "/Applications"
         }
       ]
     },

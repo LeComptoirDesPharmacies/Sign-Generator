@@ -11,6 +11,7 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-5
+    - rpm
 matrix:
   include:
   - os: linux
