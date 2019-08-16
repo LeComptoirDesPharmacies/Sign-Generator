@@ -19,6 +19,7 @@
     "postinstall": "electron-builder install-app-deps package.json && yarn build-dll"
   },
   "main": "./app/main.prod.js",
+  "license": "MIT",
   "build": {
     "productName": "SignGenerator",
     "extraResources": [
