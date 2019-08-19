@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 var path = require('path'); 
 const electron = require('electron');
-const configDir =  (electron.app || electron.remote.app).getAppPath();
+const configDir =  (electron.app || electron.remote.app).getPath('userData')
 console.log("configDir ---> ", configDir, "storagePath -----> ", path.join(configDir, 'database.db').replace("\app.asar", "").replace("app.asar", ""))
 
 // Models
@@ -14,7 +14,7 @@ const SettingModel      = require('./model/setting');
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: path.join(configDir, 'database.db').replace("\app.asar", "").replace("app.asar", "")
+    storage: path.join(configDir, 'database.db').replace("\app.asar", "").replace("/app.asar", "")
     //"database.db"
   });
 
