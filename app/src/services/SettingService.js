@@ -27,6 +27,7 @@ function createOrUpdateSettings(obj){
     return Setting.findAll({ limit: 1 })
         .then(settings => {
             if(settings.length > 0){
+                console.log("Ca rentre ici obj ----> ", settings)
                 settings[0].update(obj);
             } else {
                 Setting.create(obj);
@@ -41,6 +42,7 @@ function createOrUpdateBucketName(bucketName) {
 
 function createOrUpdatePath(path) {
     const obj = {'path': path};
+    console.log("createorUpdate --> ", path)
     return createOrUpdateSettings(obj);
 }
 

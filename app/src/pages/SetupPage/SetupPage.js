@@ -38,30 +38,30 @@ class SetupPage extends Component {
      */
     async handleSubmit(event) {
         event.preventDefault();
-        if (!this.props.location.state) {
-            if (this.fileInput.current.files[0] == undefined) {
-                this.setState({
-                    message: "Il faut renseigner un dossier de sauvegarde pour les signatures",
-                    open: true,
-                    variant: "error"
-                })
-                return;
-            }
-            let pathRepo = this.fileInput.current.files[0].path
-            settingService.createOrUpdatePath(path.join(pathRepo, "LCDPSignature"));
+        if (this.fileInput.current.files[0] == undefined) {
             this.setState({
-                message: "C'est bon ! Merci.",
+                message: "Il faut renseigner un dossier de sauvegarde pour les signatures",
                 open: true,
-                variant: "success"
-            });
-            if (!await settingService.isLogoExist()) {
-                this.setState({
-                    message: "Il faut renseigner une image pour le logo",
-                    open: true,
-                    variant: "error"
-                })
-                return;
-            }
+                variant: "error"
+            })
+            return;
+        }
+        let pathRepo = this.fileInput.current.files[0].path
+        settingService.createOrUpdatePath(path.join(pathRepo, "LCDPSignature"));
+        this.setState({
+            message: "C'est bon ! Merci.",
+            open: true,
+            variant: "success"
+        });
+        if (!await settingService.isLogoExist()) {
+            this.setState({
+                message: "Il faut renseigner une image pour le logo",
+                open: true,
+                variant: "error"
+            })
+            return;
+        }
+        if (!this.props.location.state) {
             this.props.history.push("/MainMenuPage");
         } else {
             this.props.history.push("/SettingsPage");
