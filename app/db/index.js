@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 var path = require('path'); 
 const electron = require('electron');
 const configDir =  (electron.app || electron.remote.app).getPath('userData')
+const createDepartment = require("../db/model/populate")
 
 // Models
 const SignatureModel    = require('./model/signature');
@@ -31,6 +32,7 @@ Banner.hasMany(Signature);
 sequelize.sync()
     .then(() => {
         console.log(`Database & tables created!`)
+        createDepartment.createDepartment(Department)
     });
 
 module.exports = {

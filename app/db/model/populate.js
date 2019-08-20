@@ -1,6 +1,4 @@
-import { Department } from "../../db";
-
-function createDepartment() {
+function createDepartment(Department) {
     console.log("est-ce que ça passe ici?")
     Department.findAll()
         .then(department => {

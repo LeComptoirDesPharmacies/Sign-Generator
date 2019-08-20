@@ -5,7 +5,6 @@ import SetupPage from "../SetupPage/SetupPage"
 import CircularIndeterminate from "../../components/loader/circularIndeterminate"
 import { withRouter } from 'react-router-dom';
 import MainMenuPage from "../MainMenuPage/MainMenuPage"
-import populate from "../../../db/model/populate"
 import "./DisplayFirstPage.scss"
 
 class DisplayFirstPage extends React.Component {
@@ -25,10 +24,6 @@ class DisplayFirstPage extends React.Component {
             isConnected: await settingService.isS3Ready(),
             isPathSet: await settingService.isPathFill()
         })
-    }
-
-    componentDidMount() {
-        populate.createDepartment()
     }
 
     render() {
