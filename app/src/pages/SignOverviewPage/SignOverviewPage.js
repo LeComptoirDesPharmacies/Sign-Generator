@@ -10,6 +10,7 @@ import pencil from "../../../assets/img/pencil.png"
 import PaperSheet from "../../components/papers/papers";
 import SignaturesService from "../../services/SignaturesService"
 import { Signature, Setting } from '../../../db'
+var path = require('path');
 
 /**
  * Page pour visualiser les signatures
@@ -54,8 +55,8 @@ class SignOverviewPage extends Component {
      */
     async getFileName(data) {
         let signature = await Signature.findOne({ where: { id: data } })
-        let path = await Setting.findAll({ limit: 1 })
-        let fileName = path[0].dataValues.path + "\\" + signature.htmlFile
+        let pathFile = await Setting.findAll({ limit: 1 })
+        let fileName = path.join(pathFile[0].dataValues.path, signature.htmlFile)
         this.setState({ fileName: fileName, id: data })
     }
 

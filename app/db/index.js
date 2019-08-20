@@ -10,6 +10,7 @@ const SignatureModel    = require('./model/signature');
 const DepartmentModel   = require('./model/department');
 const BannerModel       = require('./model/banner');
 const SettingModel      = require('./model/setting');
+console.log("La db est ici ----> ", path.join(configDir, 'database.db').replace("\app.asar", "").replace("/app.asar", ""))
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
