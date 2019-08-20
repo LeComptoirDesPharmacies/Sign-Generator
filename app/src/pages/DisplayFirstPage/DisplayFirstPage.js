@@ -21,11 +21,14 @@ class DisplayFirstPage extends React.Component {
      * Met à jour les State IsConnected et isPathSet pour savoir quelle page doit s'ouvrir à l'ouverture de l'app
      */
     async componentWillMount() {
-        populate.createDepartment()
         this.setState({
             isConnected: await settingService.isS3Ready(),
             isPathSet: await settingService.isPathFill()
         })
+    }
+
+    componentDidMount() {
+        populate.createDepartment()
     }
 
     render() {
