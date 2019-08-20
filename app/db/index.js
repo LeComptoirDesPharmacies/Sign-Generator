@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 var path = require('path'); 
 const electron = require('electron');
 const configDir =  (electron.app || electron.remote.app).getPath('userData')
-const createDepartment = require("../db/model/populate")
+const createDepartment  = require("./model/populate")
 
 // Models
 const SignatureModel    = require('./model/signature');

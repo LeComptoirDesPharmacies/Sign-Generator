@@ -13,4 +13,4 @@ function createDepartment(Department) {
         })
 }
 
-export default {createDepartment};
+module.exports = {createDepartment};
