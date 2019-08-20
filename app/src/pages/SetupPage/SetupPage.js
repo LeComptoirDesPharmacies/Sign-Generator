@@ -9,6 +9,7 @@ import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import CustomizedSnackbars from '../../components/modalMessage/modalMessage'
 import settingService from "../../services/SettingService"
+var path = require('path');
 
 //Page de configuration
 class SetupPage extends Component {
@@ -46,9 +47,8 @@ class SetupPage extends Component {
                 })
                 return;
             }
-            let path = this.fileInput.current.files[0].path
-            console.log("PATH setuPage ---> ", path)
-            settingService.createOrUpdatePath(path);
+            let pathRepo = this.fileInput.current.files[0].path
+            settingService.createOrUpdatePath(path.join(pathRepo, "LCDPSignature"));
             this.setState({
                 message: "C'est bon ! Merci.",
                 open: true,

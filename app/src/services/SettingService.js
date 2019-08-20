@@ -40,7 +40,7 @@ function createOrUpdateBucketName(bucketName) {
 }
 
 function createOrUpdatePath(path) {
-    const obj = {'path': path + "\\SignaturesLCDP"};
+    const obj = {'path': path};
     return createOrUpdateSettings(obj);
 }
 
