@@ -82,6 +82,7 @@ class SignatureFile {
     } else {
       fullPath = this.settings.path + "/" + this.signature.firstName + "_" + this.signature.lastName + "_" + this.signature.id + ".html"
     }
+    console.log("fullPath createSign ----> ", fullPath)
     fse.outputFile(fullPath, this.htmlContent, (error) => {
       console.log(error)
     });

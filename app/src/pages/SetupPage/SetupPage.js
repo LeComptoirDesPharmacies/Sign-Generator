@@ -47,6 +47,7 @@ class SetupPage extends Component {
                 return;
             }
             let path = this.fileInput.current.files[0].path
+            console.log("PATH setuPage ---> ", path)
             settingService.createOrUpdatePath(path);
             this.setState({
                 message: "C'est bon ! Merci.",
