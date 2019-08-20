@@ -1,4 +1,4 @@
-const {Department} = require("../index")
+import { Department } from "../../db";
 
 function createDepartment() {
     console.log("est-ce que ça passe ici?")
@@ -15,4 +15,4 @@ function createDepartment() {
         })
 }
 
-module.exports = {createDepartment};
+export default {createDepartment};

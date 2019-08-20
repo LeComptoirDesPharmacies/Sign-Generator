@@ -1,6 +1,5 @@
 'use strict';
 
-import populate from "../db/model/populate"
 const Sequelize = require('sequelize');
 var path = require('path'); 
 const electron = require('electron');
@@ -11,12 +10,10 @@ const SignatureModel    = require('./model/signature');
 const DepartmentModel   = require('./model/department');
 const BannerModel       = require('./model/banner');
 const SettingModel      = require('./model/setting');
-console.log("La db est ici ----> ", path.join(configDir, 'database.db').replace("\app.asar", "").replace("/app.asar", ""))
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: path.join(configDir, 'database.db').replace("\app.asar", "").replace("/app.asar", "")
-    //"database.db"
   });
 
 // Models
@@ -34,7 +31,6 @@ Banner.hasMany(Signature);
 sequelize.sync()
     .then(() => {
         console.log(`Database & tables created!`)
-        populate.createDepartment();
     });
 
 module.exports = {
