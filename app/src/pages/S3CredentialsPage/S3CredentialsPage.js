@@ -2,7 +2,7 @@ import './S3Credentials.scss';
 import React, { Component } from 'react';
 import Form from '../../components/forms/form';
 import { MyInputText } from '../../components/inputs/input';
-import { MyButtonSubmit } from "../../components/buttons/buttons";
+import { MyButtonSubmit, MyButtonOnClick } from "../../components/buttons/buttons";
 import { withRouter } from 'react-router-dom';
 import S3 from "../../services/S3";
 import CustomizedSnackbars from "../../components/modalMessage/modalMessage";
@@ -28,6 +28,7 @@ class S3CredentialsPage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setOpen = this.setOpen.bind(this);
+    this.return = this.return.bind(this)
   }
 
   handleChange(event) {
@@ -52,21 +53,21 @@ class S3CredentialsPage extends Component {
     const s3 = new S3(bucketName, identifiant, password);
 
     s3.isValidCredential()
-        .then((err) => {
-          if(err) {
-            this.setState({errors: err, open: true});
-          } else {
-            settingService.createOrUpdateBucketName(bucketName);
-            keytarService.saveS3Credentials(identifiant, password);
-            if (this.props.location.state) {
-              if (this.props.location.state.next == true) {
-                this.props.history.push("/SettingsPage");
-              }
-            } else {
-              this.props.history.push("/SetupPage");
+      .then((err) => {
+        if (err) {
+          this.setState({ errors: err, open: true });
+        } else {
+          settingService.createOrUpdateBucketName(bucketName);
+          keytarService.saveS3Credentials(identifiant, password);
+          if (this.props.location.state) {
+            if (this.props.location.state.next == true) {
+              this.props.history.push("/SettingsPage");
             }
+          } else {
+            this.props.history.push("/SetupPage");
           }
-        });
+        }
+      });
   }
 
   /**
@@ -74,6 +75,10 @@ class S3CredentialsPage extends Component {
    */
   setOpen(open) {
     this.setState({ open })
+  }
+
+  return() {
+    this.props.history.push("/SettingsPage");
   }
 
   render() {
@@ -127,6 +132,16 @@ class S3CredentialsPage extends Component {
             </div>
           </Form>
         </PaperSheet>
+        <div id="button">
+          {this.props.location.state ?
+            <MyButtonOnClick
+              onClick={this.return}
+              text='Retour'
+              classes='default'
+            /> :
+            null
+          }
+        </div>
       </div>
     );
   }

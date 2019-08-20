@@ -1,7 +1,5 @@
 const fse = require('fs-extra');
-import BannerService from "./BannerService"
 import { Banner, Department } from "../../db"
-import DepartmentService from "./DepartmentsService"
 
 class SignatureFile {
   constructor(signature, settings, department) {
@@ -14,7 +12,6 @@ class SignatureFile {
 
   async getBanner(signature) {
     let banner = null
-    console.log("prout ---> ", this.department, this.department)
     if (signature.bannerId) {
         banner = await Banner.findOne(
           {where: {id: signature.bannerId}}
@@ -25,13 +22,11 @@ class SignatureFile {
         {where: {id: department.bannerId}}
       )
     }
-    console.log("creathtmlfile ----> ", banner)
     return banner
 }
 
   async buildHtmlFile() {
     this.banner = await this.getBanner(this.signature)
-    console.log("build htm file ----> ", (this.banner))
     this.writeBody()
     if (this.banner) {
       this.writeBanner()
@@ -81,7 +76,12 @@ class SignatureFile {
 
   //TODO: Renvoyer erreur afin qu'elle soit afficher
   writeFileOnDisk() {
-    let fullPath = this.settings.path + "\\" + this.signature.firstName + "_" + this.signature.lastName + "_" + this.signature.id + ".html"
+    let fullPath = ""
+    if (process.platform == "win32") {
+      fullPath = this.settings.path + "\\" + this.signature.firstName + "_" + this.signature.lastName + "_" + this.signature.id + ".html"
+    } else {
+      fullPath = this.settings.path + "/" + this.signature.firstName + "_" + this.signature.lastName + "_" + this.signature.id + ".html"
+    }
     fse.outputFile(fullPath, this.htmlContent, (error) => {
       console.log(error)
     });

@@ -4,7 +4,6 @@ const Sequelize = require('sequelize');
 var path = require('path'); 
 const electron = require('electron');
 const configDir =  (electron.app || electron.remote.app).getPath('userData')
-console.log("configDir ---> ", configDir, "storagePath -----> ", path.join(configDir, 'database.db').replace("\app.asar", "").replace("app.asar", ""))
 
 // Models
 const SignatureModel    = require('./model/signature');

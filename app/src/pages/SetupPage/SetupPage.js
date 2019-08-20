@@ -25,6 +25,7 @@ class SetupPage extends Component {
         this.onClick = this.onClick.bind(this)
         this.fileInput = React.createRef();
         this.setOpen = this.setOpen.bind(this)
+        this.return = this.return.bind(this)
     }
 
     async onClick(event) {
@@ -74,6 +75,10 @@ class SetupPage extends Component {
         this.setState({ open })
     }
 
+    return() {
+        this.props.history.push("/SettingsPage");
+    }
+
     render() {
         const { message } = this.state;
         return (
@@ -111,13 +116,24 @@ class SetupPage extends Component {
                             />
                         </PaperSheet>
                     </Grid>
-                    <Grid item xs={9}></Grid>
-                    <Grid item xs={3}>
+                </Grid>
+                <Grid container direction="row" justify="flex-end" alignItems="center">
+                    <Grid item xs={2}>
                         <MyButtonOnClick
                             onClick={this.onClick}
                             text='Suivant'
                             classes='default'
                         />
+                    </Grid>
+                    <Grid item xs={2}>
+                        {this.props.location.state ?
+                            <MyButtonOnClick
+                                onClick={this.return}
+                                text='Retour'
+                                classes='default'
+                            /> :
+                            null
+                        }
                     </Grid>
                 </Grid>
             </div>

@@ -16,7 +16,6 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import ipc from './event/ipc';
 import populate from "./db/model/populate"
-import sequelize from './db';
 
 export default class AppUpdater {
   constructor() {

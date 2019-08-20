@@ -117,9 +117,6 @@ class CreateSignPage extends Component {
         if (!email) {
             formErrors["email"] = emptyField
         }
-        if (!phone) {
-            formErrors["phone"] = emptyField
-        }
         if (email) {
             if (!validEmailRegex.test(email)) {
                 formErrors["email"] = "Cet email n'est pas valide"
