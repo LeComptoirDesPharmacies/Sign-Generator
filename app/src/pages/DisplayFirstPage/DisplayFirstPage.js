@@ -19,7 +19,9 @@ class DisplayFirstPage extends React.Component {
     /**
      * Met à jour les State IsConnected et isPathSet pour savoir quelle page doit s'ouvrir à l'ouverture de l'app
      */
-    async componentWillMount() {
+    async componentDidMount() {
+        console.log("ON EST LA QUAND")
+        this.forceUpdate()
         this.setState({
             isConnected: await settingService.isS3Ready(),
             isPathSet: await settingService.isPathFill()
