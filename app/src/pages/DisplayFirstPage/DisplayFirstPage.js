@@ -21,11 +21,15 @@ class DisplayFirstPage extends React.Component {
      */
     async componentDidMount() {
         console.log("ON EST LA QUAND")
-        this.forceUpdate()
+        await this.sleep(2000);
         this.setState({
             isConnected: await settingService.isS3Ready(),
             isPathSet: await settingService.isPathFill()
         })
+    }
+
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     render() {
