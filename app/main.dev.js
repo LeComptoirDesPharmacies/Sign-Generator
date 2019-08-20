@@ -15,9 +15,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import ipc from './event/ipc';
-import populate from "./db/model/populate"
 const electron = require('electron');
-const globalShortcut = electron.globalShortcut;
 
 export default class AppUpdater {
   constructor() {
@@ -103,8 +101,6 @@ app.on('ready', async () => {
 
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
-
-  populate.createDepartment();
 
   ipc.init();
 

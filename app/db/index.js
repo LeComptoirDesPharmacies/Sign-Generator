@@ -1,5 +1,6 @@
 'use strict';
 
+import populate from "../db/model/populate"
 const Sequelize = require('sequelize');
 var path = require('path'); 
 const electron = require('electron');
@@ -33,6 +34,7 @@ Banner.hasMany(Signature);
 sequelize.sync()
     .then(() => {
         console.log(`Database & tables created!`)
+        populate.createDepartment();
     });
 
 module.exports = {
