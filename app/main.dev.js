@@ -16,6 +16,7 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import ipc from './event/ipc';
 import populate from "./db/model/populate"
+const electron = require('electron');
 const globalShortcut = electron.globalShortcut;
 
 export default class AppUpdater {
