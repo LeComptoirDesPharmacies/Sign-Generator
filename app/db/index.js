@@ -14,7 +14,7 @@ const SettingModel      = require('./model/setting');
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: "database.db" //path.join(configDir, 'database.db').replace("\app.asar", "").replace("/app.asar", "")
+    storage: path.join(configDir, 'database.db').replace("\app.asar", "").replace("/app.asar", "")
   });
 
 // Models
