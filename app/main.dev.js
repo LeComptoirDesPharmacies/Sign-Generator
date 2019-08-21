@@ -73,6 +73,7 @@ app.on('ready', async () => {
     show: false,
     width: 1024,
     height: 728,
+    title: "SignGenerator",
     webPreferences: {
       nodeIntegration: true
   }

@@ -46,7 +46,7 @@ class UploadBannerPage extends Component {
     async handleSubmit(event) {
         event.preventDefault();
         let redirectUrl = this.state.redirectLinkBanner
-        if (this.state.redirectLinkBanner.includes("https") == false) {
+        if (this.state.redirectLinkBanner.includes("https://") == false) {
             redirectUrl = "https://".concat(this.state.redirectLinkBanner)
         }
         this.setState({ saveBannerName: this.state.bannerName })

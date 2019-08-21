@@ -194,11 +194,15 @@ class HandleBannerPage extends Component {
 
     async editBannerUrl(event) {
         event.preventDefault();
-        BannerService.saveBannerRedirectUrl(this.state.currentBanner.id, this.state.changeBannerUrl)
+        let redirectUrl = this.state.changeBannerUrl
+        if (this.state.changeBannerUrl.includes("https://") == false) {
+            redirectUrl = "https://".concat(this.state.changeBannerUrl)
+        }
+        BannerService.saveBannerRedirectUrl(this.state.currentBanner.id, redirectUrl)
         this.setState(prevState => ({
             currentBanner: {
                 ...prevState.currentBanner,
-                redirectUrl: this.state.changeBannerUrl
+                redirectUrl: redirectUrl
             }
         }))
         this.editSignature()
