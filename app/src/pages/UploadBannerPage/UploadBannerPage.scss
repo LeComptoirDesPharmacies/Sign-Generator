@@ -1,0 +1,41 @@
+#button {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.MuiChip-label {
+  white-space: inherit !important;
+}
+
+  /* GALLERY */
+  /* ================== */
+  
+  .files-dropzone-gallery {
+    padding: 10px;
+    border: 1px dashed #8F98CC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .files-gallery {
+    height: 100%;
+    max-height: 200px;
+  }
+
+  .files-gallery-item {
+    height: 85%;
+    width: 90%;
+    max-height: 180px;
+    margin: 5px;
+  }
+
+  .text-dropzone{
+    color:  #6269c3;
+  }
+  
+  .files-dropzone-active {
+    border: 1px solid lightgreen;
+    color: lightgreen;
+  }
