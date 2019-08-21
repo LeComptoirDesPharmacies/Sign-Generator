@@ -25,7 +25,6 @@ class FileSearch extends React.Component {
      */
     onFilesChange = (files) => {
         this.setState({ files })
-        console.log("jen ai trop marre")
         if (files[0] == undefined) {
             this.setState({
                 message: "Le type de fichier n'est pas supporter.",
@@ -41,7 +40,6 @@ class FileSearch extends React.Component {
      * Affiche un message d'erreur si je le type du fichier n'est pas bon
      */
     onFilesError = (error, file) => {
-        console.log("on sait jamais")
         this.setState({
             message: "error code " + error.code + ": " + error.message,
             open: true,
@@ -69,10 +67,8 @@ class FileSearch extends React.Component {
     async filesUpload(files) {
         const file = files[0];
         const uploadFile = new FileUpload(file, this.props.fileName)
-        console.log("pour commencer")
         await uploadFile.uploadFileToS3().then(async data => {
             if (this.props.redirect == true) {
-                console.log("ici?")
                 await BannerService.saveBannerImgUrl(this.props.banner, data.Location)
                 await this.sleep(2000);
                 this.props.history.push({
@@ -82,7 +78,6 @@ class FileSearch extends React.Component {
                     }
                 })
             } else {
-                console.log("non en fait ci")
                 settingService.createOrUpdateLogo(data.Location)
             }
         })

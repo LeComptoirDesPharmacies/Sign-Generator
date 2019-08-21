@@ -79,7 +79,6 @@ class SignatureFile {
   writeFileOnDisk() {
     let fullPath = ""
     fullPath = path.join(this.settings.path, this.signature.firstName + "_" + this.signature.lastName + "_" + this.signature.id + ".html")
-    console.log("fullPath createSign ----> ", fullPath)
     fse.outputFile(fullPath, this.htmlContent, (error) => {
       console.log(error)
     });
