@@ -72,6 +72,10 @@ export default function NavTabs(props) {
       setValue(1)
       props.location.state.value = 1
     }
+    if (props.location.state.value === -2) {
+      setValue(2)
+      props.location.state.value = 2
+    }
     if (props.location.state.update === true) {
       setUpdate(props.location.state.update)
       props.location.state.update = false

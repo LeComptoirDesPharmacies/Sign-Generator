@@ -25,8 +25,13 @@ export default class FilteredList extends Component {
     filterList(event) {
         var updatedList = this.state.initialItems;
         updatedList = updatedList.filter(function (item) {
-            return item.firstName.toLowerCase().search(
-                event.target.value.toLowerCase()) !== -1;
+            if (item.firstName) {
+                return item.firstName.toLowerCase().search(
+                    event.target.value.toLowerCase()) !== -1
+            } else {
+                return item.name.toLowerCase().search(
+                    event.target.value.toLowerCase()) !== -1
+            }
         });
         this.setState({ items: updatedList });
     }
