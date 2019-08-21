@@ -77,8 +77,7 @@ class CreateSignPage extends Component {
         event.preventDefault();
         await this.handleValidation()
         if (Object.entries(this.state.formErrors).length === 0) {
-            let signature = await this.saveData()
-            successNotif()
+            let signature = await this.saveData().then(successNotif())
             await this.createHtmlFile(signature)
         }
     }

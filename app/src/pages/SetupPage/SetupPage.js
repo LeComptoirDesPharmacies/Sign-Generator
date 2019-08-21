@@ -9,7 +9,9 @@ import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import CustomizedSnackbars from '../../components/modalMessage/modalMessage'
 import settingService from "../../services/SettingService"
+import { Setting } from "../../../db"
 var path = require('path');
+var ncp = require('ncp').ncp;
 
 //Page de configuration
 class SetupPage extends Component {
@@ -46,6 +48,7 @@ class SetupPage extends Component {
             })
             return;
         }
+        let oldPath = await Setting.findOne({attributes: ["path"]})
         let pathRepo = this.fileInput.current.files[0].path
         settingService.createOrUpdatePath(path.join(pathRepo, "LCDPSignature"));
         this.setState({
@@ -64,6 +67,7 @@ class SetupPage extends Component {
         if (!this.props.location.state) {
             this.props.history.push("/MainMenuPage");
         } else {
+            ncp(oldPath.dataValues.path, path.join(pathRepo, "LCDPSignature"))
             this.props.history.push("/SettingsPage");
         }
     }

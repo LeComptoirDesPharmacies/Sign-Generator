@@ -268,12 +268,16 @@ class HandleBannerPage extends Component {
                                                 <Form
                                                     submit={this.editBannerUrl}
                                                 >
-                                                    <MyInputText
-                                                        value={this.state.changeBannerUrl}
-                                                        fullWidth={true}
-                                                        handleChange={this.handleInputChange}
-                                                        name="changeBannerUrl"
-                                                    />
+                                                    <Grid item xs={9} align="center">
+                                                    <div id="link">
+                                                        <MyInputText
+                                                            value={this.state.changeBannerUrl}
+                                                            fullWidth={true}
+                                                            handleChange={this.handleInputChange}
+                                                            name="changeBannerUrl"
+                                                        />
+                                                    </div>
+                                                    </Grid>
                                                 </Form> :
                                                 <div className="banner_url">{redirectUrl}</div>
                                             }

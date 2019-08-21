@@ -45,8 +45,12 @@ class UploadBannerPage extends Component {
 
     async handleSubmit(event) {
         event.preventDefault();
+        let redirectUrl = this.state.redirectLinkBanner
+        if (this.state.redirectLinkBanner.includes("https") == false) {
+            redirectUrl = "https://".concat(this.state.redirectLinkBanner)
+        }
         this.setState({ saveBannerName: this.state.bannerName })
-        await Banner.create({name: this.state.bannerName, redirectUrl: this.state.redirectLinkBanner}).then(test => {
+        await Banner.create({name: this.state.bannerName, redirectUrl: redirectUrl}).then(test => {
             this.setState({banner: test.dataValues.id})
         })
     }

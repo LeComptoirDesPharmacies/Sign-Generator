@@ -11,6 +11,7 @@ import PaperSheet from "../../components/papers/papers";
 import SignaturesService from "../../services/SignaturesService"
 import { Signature, Setting } from '../../../db'
 var path = require('path');
+const fs = require('fs')
 
 /**
  * Page pour visualiser les signatures
@@ -66,6 +67,7 @@ class SignOverviewPage extends Component {
     deleteSignature() {
         SignaturesService.deleteSignature(this.state.id)
         const toDelete = new Set([this.state.id]);
+        fs.unlinkSync(this.state.fileName)
         let updateArray = this.state.finalItems.filter(obj => !toDelete.has(obj.id));
         if (updateArray.length === 0) {
             updateArray[0] = 'rien'

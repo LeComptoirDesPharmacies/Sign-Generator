@@ -207,6 +207,18 @@ eval("module.exports = keytar;\n\n//# sourceURL=webpack://renderer/external_%22k
 
 /***/ }),
 
+/***/ "ncp":
+/*!**********************!*\
+  !*** external "ncp" ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = ncp;\n\n//# sourceURL=webpack://renderer/external_%22ncp%22?");
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "react" ***!
