@@ -1,6 +1,7 @@
 ﻿# SignGenerator
 
-SignGenerator is a desktop application that allows you to create email signatures as HTML files stored on a Dropbox. It allows you to enter personalized information for each team member and assign banners according to the department or person. 
+SignGenerator is a desktop application that allows you to create email signatures as HTML files stored on your computer. It allows you to enter personalized information for each team member and assign banners according to the department or person.
+All images are stored in a S3 bucket.
 
 ## Installation
 
@@ -8,6 +9,7 @@ SignGenerator is a desktop application that allows you to create email signature
 
 * Git
 * Yarn (>=1.12.3)
+* S3 bucket
 
 ### Usage
 Clone the SignGenerator's repository :
