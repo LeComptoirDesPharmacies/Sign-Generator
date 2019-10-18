@@ -49,13 +49,21 @@ function createOrUpdateLogo(logo) {
     return createOrUpdateSettings(obj);
 }
 
+function getBucketName() {
+    return Setting.findAll({ limit: 1 })
+        .then(setting => {
+            return setting[0].bucketName;
+        })
+}
+
 const SettingServiceFactory = () => ({
     isPathFill,
     isS3Ready,
     createOrUpdateBucketName,
     createOrUpdatePath,
     isLogoExist,
-    createOrUpdateLogo
+    createOrUpdateLogo,
+    getBucketName
 });
 
 export default SettingServiceFactory();

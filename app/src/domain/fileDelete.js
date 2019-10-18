@@ -1,5 +1,6 @@
 import KeytarService from "../services/KeytarService"
 import S3 from "../services/S3"
+import SettingService from "../services/SettingService";
 
 class FileDelete {
     constructor(imageUrl) {
@@ -9,7 +10,7 @@ class FileDelete {
 
     async deleteBannerOnS3() {
         await KeytarService.getS3Credentials().then(async data => {
-            let s3 = new S3("lcdp-signature", data.account, data.password)
+            let s3 = new S3(SettingService.getBucketName(), data.account, data.password)
             await s3.deleteFile(this.fileName)
         })
     }

@@ -14,6 +14,10 @@ function init() {
         })
     });
 
+    ipcMain.on(events.DELETE_S3_CREDENTIALS, (events, account) => {
+        keytar.deletePassword(S3_SERVICE, account);
+    });
+
     ipcMain.on(events.SET_S3_CREDENTIALS, (event, user, pass) => {
         event.returnValue = keytar.setPassword(S3_SERVICE, user, pass);
     });
