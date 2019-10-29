@@ -149,7 +149,7 @@
     "react-router-dom": "^5.0.1",
     "react-select": "^3.0.4",
     "react-window": "^1.8.4",
-    "sequelize": "^5.14.0",
+    "sequelize": "^5.15.1",
     "sqlite3": "^4.0.9"
   },
   "devEngines": {
