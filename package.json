@@ -127,7 +127,7 @@
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.1.4",
-    "yarn": "^1.12.3"
+    "yarn": "^1.22.0"
   },
   "dependencies": {
     "@material-ui/core": "^4.3.2",
